@@ -2,7 +2,6 @@
 
 [Notes on Shaping Life](README.md)
 
-- [About This Book](about-this-book.md)
 - [Contents](contents.md)
 
 - [Opening](opening.md)
