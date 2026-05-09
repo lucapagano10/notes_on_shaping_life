@@ -1,0 +1,437 @@
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Literata:opsz,wght@7..72,400;7..72,500;7..72,600&display=swap");
+
+:root {
+  --content-max-width: 68ch;
+  --book-bg: oklch(95.6% 0.014 82);
+  --book-page: oklch(98.2% 0.008 82);
+  --book-page-edge: oklch(89% 0.015 82);
+  --book-ink: oklch(24% 0.02 55);
+  --book-muted: oklch(47% 0.02 60);
+  --book-rule: oklch(85% 0.015 78);
+  --book-accent: oklch(39% 0.055 45);
+  --book-accent-soft: oklch(93% 0.018 58);
+  --book-shadow: 0 14px 30px rgba(61, 45, 25, 0.04);
+  --ui-ease: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+html.light {
+  --bg: var(--book-bg);
+  --fg: var(--book-ink);
+  --links: var(--book-accent);
+  --sidebar-bg: color-mix(in oklab, var(--book-bg) 92%, white);
+  --sidebar-fg: var(--book-muted);
+  --sidebar-active: var(--book-ink);
+  --sidebar-non-existant: oklch(62% 0.014 60);
+  --sidebar-spacer: var(--book-rule);
+  --scrollbar: color-mix(in oklab, var(--book-muted) 28%, transparent);
+  --icons: var(--book-muted);
+  --icons-hover: var(--book-ink);
+  --theme-popup-bg: var(--book-page);
+  --theme-popup-border: var(--book-rule);
+  --theme-hover: var(--book-accent-soft);
+  --quote-bg: var(--book-accent-soft);
+  --inline-code-color: var(--book-accent);
+}
+
+html.coal,
+html.navy,
+html.ayu {
+  --content-max-width: 68ch;
+}
+
+html,
+body {
+  background: var(--book-bg);
+}
+
+body {
+  color: var(--book-ink);
+  font-family: "Literata", Georgia, serif;
+  font-kerning: normal;
+  text-rendering: optimizeLegibility;
+}
+
+.menu-bar,
+.sidebar,
+.nav-wrapper,
+.nav-wide-wrapper,
+.searchbar-outer,
+.theme-popup,
+.icon-button,
+.menu-title,
+#mdbook-sidebar a,
+.chapter-item,
+.searchresults-header,
+#mdbook-searchresults a,
+#mdbook-searchbar {
+  font-family: "Instrument Sans", "Avenir Next", "Helvetica Neue", sans-serif;
+}
+
+.menu-bar {
+  background: color-mix(in oklab, var(--book-bg) 88%, white);
+  border-bottom: 1px solid var(--book-rule);
+  box-shadow: none;
+}
+
+.menu-title {
+  font-size: 0.76rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--book-muted);
+}
+
+.right-buttons a[href$="print.html"],
+.right-buttons a[href*="github.com"],
+#mdbook-theme-toggle,
+#mdbook-theme-list {
+  display: none;
+}
+
+.left-buttons,
+.right-buttons {
+  gap: 0.25rem;
+}
+
+.icon-button {
+  border-radius: 999px;
+  transition: background-color 160ms var(--ui-ease), color 160ms var(--ui-ease), transform 160ms var(--ui-ease);
+}
+
+.icon-button:hover {
+  background: var(--book-accent-soft);
+}
+
+.icon-button:active {
+  transform: scale(0.97);
+}
+
+.sidebar {
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--book-rule);
+}
+
+.sidebar-scrollbox {
+  padding: 1.2rem 0.9rem 2rem;
+}
+
+#mdbook-sidebar a {
+  display: block;
+  padding: 0.42rem 0.55rem;
+  margin: 0.08rem 0;
+  border-radius: 0.45rem;
+  color: var(--sidebar-fg);
+  line-height: 1.35;
+  transition: background-color 160ms var(--ui-ease), color 160ms var(--ui-ease), transform 160ms var(--ui-ease);
+}
+
+#mdbook-sidebar a:hover {
+  background: var(--book-accent-soft);
+  color: var(--book-ink);
+  text-decoration: none;
+  transform: translateX(2px);
+}
+
+#mdbook-sidebar .active {
+  color: var(--sidebar-active);
+  background: color-mix(in oklab, var(--book-accent-soft) 75%, white);
+  font-weight: 500;
+}
+
+.page {
+  padding-top: 1.4rem;
+}
+
+.content {
+  padding: 0 0 4rem;
+}
+
+.content main {
+  background: var(--book-page);
+  border: 1px solid var(--book-page-edge);
+  box-shadow: var(--book-shadow);
+  border-radius: 4px;
+  padding: clamp(2rem, 5vw, 4.5rem) clamp(1.35rem, 5vw, 5rem);
+  line-height: 1.88;
+  font-size: 1.42rem;
+}
+
+.content main h1,
+.content main h2,
+.content main h3 {
+  color: var(--book-ink);
+  letter-spacing: -0.025em;
+  line-height: 1.08;
+  font-weight: 500;
+}
+
+.content main h1 {
+  font-size: clamp(2.25rem, 1.8rem + 1.8vw, 3.5rem);
+  margin-top: 0;
+  margin-bottom: 2.25rem;
+  max-width: 12ch;
+}
+
+.content main h1:not(#notes-on-shaping-life):not(#about-this-book):not(#contents):not(#colophon)::before {
+  content: "Chapter";
+  display: block;
+  margin-bottom: 0.85rem;
+  font-family: "Instrument Sans", "Avenir Next", "Helvetica Neue", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--book-muted);
+}
+
+.content main h1::after {
+  content: "";
+  display: block;
+  width: 3.5rem;
+  height: 1px;
+  margin-top: 1rem;
+  background: var(--book-rule);
+}
+
+.content main h2 {
+  font-size: clamp(1.55rem, 1.3rem + 0.8vw, 2.15rem);
+  margin-top: 3.6rem;
+  margin-bottom: 1rem;
+}
+
+.content main p,
+.content main li,
+.content main blockquote {
+  max-width: 62ch;
+}
+
+.content main p {
+  margin: 0 0 1.45rem;
+}
+
+.content main p + p {
+  text-indent: 1.4em;
+  margin-top: -0.25rem;
+}
+
+.content main h1 + p,
+.content main h2 + p,
+.content main blockquote + p,
+.content main ul + p,
+.content main ol + p {
+  text-indent: 0;
+  margin-top: 0;
+}
+
+.content main ul,
+.content main ol {
+  padding-left: 1.15rem;
+  margin: 1.25rem 0 1.5rem;
+}
+
+.content main li + li {
+  margin-top: 0.55rem;
+}
+
+.content main a {
+  color: var(--book-accent);
+  text-decoration-thickness: 0.06em;
+  text-underline-offset: 0.14em;
+}
+
+.content main .header:link,
+.content main .header:visited {
+  color: inherit;
+}
+
+.content main .header:hover {
+  text-decoration: none;
+}
+
+.content main code {
+  padding: 0.08em 0.32em;
+  border-radius: 0.2rem;
+  background: var(--book-accent-soft);
+  font-size: 0.92em;
+}
+
+.content main blockquote {
+  margin: 2rem 0;
+  padding: 0.2rem 0 0.2rem 1.1rem;
+  border-left: 2px solid color-mix(in oklab, var(--book-accent) 35%, var(--book-rule));
+  background: transparent;
+  color: color-mix(in oklab, var(--book-ink) 82%, var(--book-muted));
+}
+
+#mdbook-search-wrapper {
+  margin: 0 auto 1.2rem;
+  max-width: 68ch;
+}
+
+.searchbar-outer {
+  background: var(--book-page);
+  border: 1px solid var(--book-rule);
+  border-radius: 0.35rem;
+  box-shadow: none;
+}
+
+#mdbook-searchbar {
+  border-radius: 0.25rem;
+}
+
+#mdbook-searchbar:focus {
+  outline: none;
+  box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--book-accent) 25%, transparent);
+}
+
+.searchresults-outer {
+  background: var(--book-page);
+  border: 1px solid var(--book-rule);
+  border-radius: 0.35rem;
+  box-shadow: var(--book-shadow);
+}
+
+.nav-wide-wrapper {
+  display: none;
+}
+
+.nav-wrapper {
+  max-width: 68ch;
+  margin: 2rem auto 0;
+}
+
+.mobile-nav-chapters {
+  border-radius: 999px;
+  border: 1px solid var(--book-rule);
+  background: var(--book-page);
+  color: var(--book-accent);
+  transition: background-color 160ms var(--ui-ease), color 160ms var(--ui-ease), transform 160ms var(--ui-ease);
+}
+
+.mobile-nav-chapters:hover {
+  background: var(--book-accent-soft);
+  color: var(--book-ink);
+}
+
+.mobile-nav-chapters:active {
+  transform: scale(0.97);
+}
+
+.content main h1#notes-on-shaping-life {
+  max-width: none;
+  text-align: center;
+  margin: 14vh auto 1.25rem;
+}
+
+.content main h1#notes-on-shaping-life::after {
+  margin: 1rem auto 0;
+}
+
+.content main h1#notes-on-shaping-life + p,
+.content main h1#notes-on-shaping-life + p + p,
+.content main h1#notes-on-shaping-life + p + p + p,
+.content main h1#notes-on-shaping-life + p + p + p + p,
+.content main h1#notes-on-shaping-life + p + p + p + p + p {
+  text-indent: 0;
+  text-align: center;
+  max-width: 30ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.content main h1#notes-on-shaping-life + p {
+  font-size: 1.22em;
+}
+
+.content main h1#notes-on-shaping-life + p + p + p + p {
+  margin-top: 2.6rem;
+}
+
+.content main h1#about-this-book + p,
+.content main h1#contents + p {
+  color: color-mix(in oklab, var(--book-ink) 86%, var(--book-muted));
+}
+
+.content main h1#contents ~ ul,
+.content main h1#contents ~ ol {
+  padding-left: 0;
+  max-width: 34rem;
+  list-style-position: inside;
+}
+
+.content main h1#contents ~ ul li,
+.content main h1#contents ~ ol li {
+  padding: 0.45rem 0;
+  border-bottom: 1px solid var(--book-rule);
+}
+
+.content main h1#contents ~ ol li::marker {
+  font-family: "Instrument Sans", "Avenir Next", "Helvetica Neue", sans-serif;
+  color: var(--book-muted);
+}
+
+.content main h1#about-this-book,
+.content main h1#colophon {
+  max-width: 16ch;
+}
+
+::selection {
+  background: color-mix(in oklab, var(--book-accent) 22%, white);
+}
+
+@media (min-width: 1080px) {
+  .page-wrapper {
+    padding-inline: 3vw;
+  }
+
+  .content main {
+    min-height: calc(100vh - 12rem);
+  }
+}
+
+@media (max-width: 1079px) {
+  .menu-title {
+    max-width: 16ch;
+    text-align: center;
+    line-height: 1.2;
+  }
+
+  .content main {
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 1.6rem 1.15rem 2.4rem;
+    font-size: 1.3rem;
+    line-height: 1.82;
+  }
+
+  .content main h1 {
+    margin-bottom: 1.8rem;
+  }
+
+  .content main p + p {
+    text-indent: 1em;
+  }
+
+  .content main h1#notes-on-shaping-life {
+    margin-top: 5rem;
+  }
+
+  .menu-bar {
+    padding-inline: 0.25rem;
+  }
+
+  .icon-button {
+    min-width: 2.5rem;
+    min-height: 2.5rem;
+  }
+
+  #mdbook-search-wrapper {
+    margin-bottom: 0.75rem;
+  }
+
+  .nav-wrapper {
+    margin-top: 1.25rem;
+  }
+}

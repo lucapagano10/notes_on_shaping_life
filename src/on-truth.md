@@ -1,0 +1,4 @@
+# On Truth
+
+
+If it hurts to hear it, look for the truth in it. If it comforts you to hear it, look for the lie in it. Every unsaid thing becomes an open loop running in the background, quietly draining the battery. There's a lightness that comes with living open. Nothing hidden. Nothing guarded. Nothing to defend. You just are what you are. It feels risky. But it's actually safer. When you're not hiding anything, there's nothing to protect. When you're not pretending, there's nothing to expose. What's better: uncomfortable truth or comfortable lies? The truth can be uncomfortable, but it's fair. And in the long run, it does you good. It does the other person good too. So say the thing. Have the conversation. Write the note. Make the call. Whatever you're holding back, it's costing you more than it's costing them.

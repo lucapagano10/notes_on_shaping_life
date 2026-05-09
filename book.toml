@@ -1,0 +1,19 @@
+[book]
+authors = ["Luca Pagano"]
+language = "en"
+src = "src"
+title = "Notes on Shaping Life"
+description = "A short web book built from a PDF draft."
+
+[build]
+build-dir = "book"
+
+[output.html]
+default-theme = "light"
+preferred-dark-theme = "navy"
+git-repository-url = "https://github.com/lucapagano10/notes_on_shaping_life"
+site-url = "/notes_on_shaping_life/"
+additional-css = ["theme/custom.css"]
+
+[output.html.print]
+enable = true
